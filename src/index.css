@@ -1,0 +1,134 @@
+:root {
+  --bg: #faf9f7;
+  --primary: #2c3e50;
+  --accent: #e0b084;
+  --white: #fff;
+  --shadow: rgba(0,0,0,0.08);
+  --font: 'Mulish', sans-serif;
+  --node-bg: #5383e8;
+  --connector-col: #bbb;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--primary);line-height:1.5;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;height:auto;}
+
+/* ——— TOPBAR ——— */
+.topbar {
+  position:fixed; top:0; left:0; width:100%;
+  background:rgba(255,255,255,0.75); backdrop-filter:blur(10px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.05); z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.75rem 2rem; max-width:1200px; margin:0 auto;
+}
+.topbar .logo img{height:40px;}
+.topbar nav ul{display:flex;gap:2rem;list-style:none;}
+.topbar nav a{font-weight:600;transition:color .3s;}
+.topbar nav a:hover{color:var(--accent);}
+.toggle-btn{font-size:1.5rem;cursor:pointer;color:var(--primary);display:none;}
+@media(max-width:900px){
+  .topbar nav{display:none;}
+  .toggle-btn{display:block;}
+}
+.topbar nav.mobile-open{
+  display:flex !important;
+  flex-direction:column !important;
+  position:absolute; top:72px; right:2rem;
+  background:rgba(255,255,255,0.95);
+  padding:1rem;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.topbar nav.mobile-open ul{flex-direction:column;gap:1rem;}
+
+/* ——— HERO ——— */
+#hero {
+  margin-top:72px; height:calc(100vh - 72px);
+  position:relative; overflow:hidden;
+}
+#hero img {
+  position:absolute; inset:0; object-fit:cover;
+  width:100%; height:100%; opacity:.4;
+}
+#hero .hero-content {
+  position:relative; z-index:1;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:flex-start;
+  height:100%; padding:0 4rem;
+}
+#hero h1{font-size:3rem;font-weight:800; margin-bottom:1rem;}
+#hero p{font-size:1.125rem; margin-bottom:2rem; max-width:600px;}
+@media(max-width:600px){
+  #hero .hero-content{padding:0 1.5rem;}
+}
+
+/* Ortak buton */
+.btn{display:inline-block;padding:.75rem 1.5rem;background:var(--accent);color:var(--primary);border-radius:4px;font-weight:600;transition:background .3s;}
+.btn:hover{background:#b6855e;}
+
+/* ——— SECTION TITLES ——— */
+.section{padding:4rem 1rem; max-width:1200px; margin:0 auto;}
+.section h2{text-align:center;font-size:2rem;margin-bottom:2rem;position:relative;}
+.section h2::before,
+.section h2::after {
+  content:''; width:50px; height:2px; background:#ccc;
+  position:absolute; top:50%; transform:translateY(-50%);
+}
+.section h2::before{left:calc(50% - 80px);}
+.section h2::after{right:calc(50% - 80px);}
+
+/* ——— ABOUT ——— */
+#about p{max-width:800px;margin:0 auto;font-size:1rem;color:#555;}
+
+/* ——— VISION & MISSION ——— */
+#vision-mission {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;text-align:center;}
+#vision-mission .box{background:var(--white);box-shadow:0 4px 12px var(--shadow);padding:2rem;border-radius:8px;}
+#vision-mission .box h3{margin-bottom:1rem;font-weight:600;}
+#vision-mission .box p{color:#555;font-style:italic;}
+
+/* ——— SERVICES ——— */
+.services-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+.service-item{background:var(--white);box-shadow:0 4px 12px var(--shadow);padding:2rem;border-radius:8px;text-align:center;}
+.service-item i{font-size:2rem;margin-bottom:1rem;color:var(--accent);}
+.service-item h3{margin-bottom:.5rem;font-size:1.25rem;}
+.service-item p{font-size:.95rem;color:#666;}
+
+/* ——— GALLERY ——— */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+.gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;}
+
+/* ——— APPOINTMENT & FEEDBACK FORM ——— */
+.form-container{max-width:500px;margin:0 auto;background:var(--white);padding:2rem;box-shadow:0 4px 12px var(--shadow);border-radius:8px;}
+.form-container label{display:block;margin-bottom:.5rem;font-weight:600;}
+.form-container input,
+.form-container button,
+.form-container textarea{width:100%;padding:.75rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:4px;}
+.form-container textarea{resize:vertical;}
+.form-container button{background:var(--accent);border:none;color:var(--primary);cursor:pointer;font-weight:600;}
+.form-container button:hover{background:#b6855e;}
+
+/* =============== ORGANİZASYON ŞEMASI =============== */
+#organizasyon{background:#fafafa;}
+.org-chart{overflow-x:auto;padding:1rem;}
+.org-chart ul{position:relative;padding-top:20px;white-space:nowrap;margin:0;list-style:none;}
+.org-chart li{display:inline-block;vertical-align:top;text-align:center;position:relative;padding:20px 10px 0;}
+.org-chart li::before,.org-chart li::after{content:'';position:absolute;top:0;width:50%;height:20px;border-top:2px solid var(--connector-col);}
+.org-chart li::before{left:0;border-right:2px solid var(--connector-col);}
+.org-chart li::after{right:0;border-left:2px solid var(--connector-col);}
+.org-chart li:only-child::before,.org-chart li:only-child::after{display:none;}
+.org-chart li:only-child{padding-top:0;}
+.org-chart li:first-child::before,.org-chart li:last-child::after{border:none;}
+.org-chart ul ul::before{content:'';position:absolute;top:0;left:50%;width:0;height:20px;border-left:2px solid var(--connector-col);}
+.node{display:inline-block;padding:8px 14px;margin:0 auto;border-radius:6px;background:var(--node-bg);color:#fff;font-size:14px;white-space:nowrap;box-shadow:0 2px 5px rgba(0,0,0,0.1);min-width:140px;}
+
+/* ——— CONTACT ——— */
+#contact .contact-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem;}
+#contact .contact-info div{text-align:center;}
+.map{margin:2rem 0;}
+.socials{text-align:center;}
+.socials a{margin:0 .5rem;font-size:1.5rem;color:var(--primary);transition:color .3s;}
+.socials a:hover{color:var(--accent);}
+
+/* ——— FOOTER ——— */
+footer{text-align:center;padding:1rem;color:#888;font-size:.9rem;}
